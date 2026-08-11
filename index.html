@@ -513,10 +513,17 @@
     max-width:720px;
     margin:0 auto;
   }
-  .whatsapp-btn{
+  .cta-group{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
     margin-top:38px;
+  }
+  .btn-primary{
     display:inline-flex;
     align-items:center;
+    justify-content:center;
     gap:10px;
     background:var(--gold);
     color:var(--ink);
@@ -525,17 +532,38 @@
     letter-spacing:.08em;
     text-transform:uppercase;
     font-weight:600;
-    padding:17px 32px;
+    padding:17px 36px;
     border-radius:2px;
     transition:transform .3s ease, box-shadow .3s ease, background .3s ease;
     box-shadow:0 16px 34px -14px rgba(176,141,78,.55);
   }
-  .whatsapp-btn:hover{
+  .btn-primary:hover{
     background:#C9A455;
     transform:translateY(-3px);
     box-shadow:0 20px 40px -12px rgba(176,141,78,.7);
   }
-  .whatsapp-btn svg{width:17px;height:17px;}
+  .btn-secondary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:transparent;
+    color:var(--gold-soft);
+    border:1px solid rgba(217,194,155,.5);
+    font-family:'Montserrat', sans-serif;
+    font-size:11.5px;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:15px 34px;
+    border-radius:2px;
+    transition:border-color .3s ease, color .3s ease, background .3s ease;
+  }
+  .btn-secondary:hover{
+    border-color:var(--gold-soft);
+    color:var(--cream);
+    background:rgba(217,194,155,.08);
+  }
 
   .rsvp-sub{
     margin-top:18px;
@@ -546,7 +574,7 @@
 
   /* ---------- FOOTER ---------- */
   footer{
-    padding:38px 6vw 130px;
+    padding:38px 6vw 150px;
     text-align:center;
   }
   footer .footer-logo{
@@ -568,20 +596,28 @@
     bottom:0;left:0;right:0;
     z-index:60;
     background:var(--ink);
-    padding:14px 20px;
+    padding:10px 14px;
     display:flex;
-    align-items:center;
+    align-items:stretch;
     justify-content:center;
+    gap:8px;
     box-shadow:0 -6px 24px rgba(0,0,0,.25);
   }
   .sticky-cta a{
-    display:flex;align-items:center;gap:10px;
-    color:var(--gold-soft);
+    flex:1 1 auto;
+    display:flex;align-items:center;justify-content:center;
     font-family:'Montserrat', sans-serif;
-    font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    font-size:11px;letter-spacing:.03em;text-transform:uppercase;
     font-weight:600;
+    padding:12px 8px;
+    text-align:center;
   }
-  .sticky-cta svg{width:16px;height:16px;color:var(--gold-soft);}
+  .sticky-cta .btn-primary{
+    margin:0;padding:12px 8px;box-shadow:none;font-size:11px;
+  }
+  .sticky-cta .btn-secondary{
+    margin:0;padding:12px 8px;font-size:10px;
+  }
 
   /* ---------- ANIMATIONS ---------- */
   .reveal{
@@ -762,7 +798,9 @@
 
     .rsvp{padding:120px 6vw;}
     .rsvp h2{font-size:clamp(32px,4vw,54px);}
-    .whatsapp-btn{margin-top:44px;padding:19px 40px;font-size:13.5px;}
+    .cta-group{flex-direction:row;gap:18px;margin-top:44px;}
+    .btn-primary{padding:19px 40px;font-size:13.5px;}
+    .btn-secondary{padding:17px 34px;font-size:12px;}
 
     footer{padding:64px 6vw 40px;}
     footer .footer-logo{max-width:210px;}
@@ -944,11 +982,11 @@
 <section class="rsvp" id="rsvp">
   <svg class="heart-mark reveal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
   <h2 class="reveal">Garanta seu ingresso para o<br>Benditas Experience</h2>
-  <a class="whatsapp-btn reveal" id="wa-main" href="#" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.1 9 9.7 8 9.5 7.5c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.5-.4Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2Z"/></svg>
-    Garantir meu ingresso
-  </a>
-  <div class="rsvp-sub">Vagas limitadas · Confirmação via WhatsApp</div>
+  <div class="cta-group reveal">
+    <a class="btn-primary" href="https://www.sympla.com.br/evento/benditas-co-minha-melhor-amiga/3517431" target="_blank" rel="noopener">Garantir meu ingresso — Sympla</a>
+    <a class="btn-secondary" id="wa-main" href="#" target="_blank" rel="noopener">Garantir meu ingresso — WhatsApp</a>
+  </div>
+  <div class="rsvp-sub">Vagas limitadas</div>
 </section>
 
 <footer>
@@ -957,10 +995,8 @@
 </footer>
 
 <div class="sticky-cta">
-  <a id="wa-sticky" href="#" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2Z"/></svg>
-    Garantir meu ingresso
-  </a>
+  <a class="btn-primary" href="https://www.sympla.com.br/evento/benditas-co-minha-melhor-amiga/3517431" target="_blank" rel="noopener">Sympla</a>
+  <a class="btn-secondary" id="wa-sticky" href="#" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
 <script>
